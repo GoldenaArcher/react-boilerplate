@@ -1,10 +1,10 @@
-import ReactDOM from "react-dom/client";
-import React from "react";
-import App from "./App";
+import ReactDOM from 'react-dom/client';
+import React from 'react';
+import App from './App';
 
-import "./index.scss";
+import './index.scss';
 
-const container = document.getElementById("root");
+const container = document.getElementById('root');
 
 console.log(container);
 

@@ -1,31 +1,32 @@
-const path = require("path");
-const ESLintPlugin = require("eslint-webpack-plugin");
+const path = require('path');
+const ESLintPlugin = require('eslint-webpack-plugin');
+const PrettierPlugin = require('prettier-webpack-plugin');
 
 module.exports = {
-  entry: "./src/index.js",
-  mode: "development",
+  entry: './src/index.js',
+  mode: 'development',
   output: {
-    filename: "bundle.js",
-    path: path.resolve(__dirname, "dist/"),
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'dist/'),
   },
   module: {
     rules: [
       {
         test: /\.(jsx|js)/,
-        include: path.resolve(__dirname, "src"),
+        include: path.resolve(__dirname, 'src'),
         exclude: /node_modules/,
         use: [
           {
-            loader: "babel-loader",
+            loader: 'babel-loader',
             options: {
               presets: [
                 [
-                  "@babel/preset-env",
+                  '@babel/preset-env',
                   {
-                    targets: "defaults",
+                    targets: 'defaults',
                   },
                 ],
-                "@babel/preset-react",
+                '@babel/preset-react',
               ],
             },
           },
@@ -33,17 +34,17 @@ module.exports = {
       },
       {
         test: /\.css$/i,
-        include: path.resolve(__dirname, "src"),
+        include: path.resolve(__dirname, 'src'),
         exclude: /node_modules/,
-        use: ["style-loader", "css-loader"],
+        use: ['style-loader', 'css-loader'],
       },
       {
         test: /\.s[ac]ss$/i,
-        include: path.resolve(__dirname, "src"),
+        include: path.resolve(__dirname, 'src'),
         exclude: /node_modules/,
-        use: ["style-loader", "css-loader", "sass-loader"],
+        use: ['style-loader', 'css-loader', 'sass-loader'],
       },
     ],
   },
-  plugins: [new ESLintPlugin()],
+  plugins: [new ESLintPlugin(), new PrettierPlugin()],
 };
