@@ -45,5 +45,5 @@ module.exports = {
       },
     ],
   },
-  plugins: [new ESLintPlugin(options)],
+  plugins: [new ESLintPlugin()],
 };
